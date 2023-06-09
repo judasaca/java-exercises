@@ -10,5 +10,11 @@ public class Persona {
         this.edad = edad;
         this.primerApellido = primerApellido;
     }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getNombre(){
+        return this.nombre;
+    }
 
 }
