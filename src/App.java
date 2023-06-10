@@ -1,11 +1,9 @@
-import Entidad.Persona;
-import Servicio.PersonaService;
+import Entidad.Libro;
+import Servicio.LibroService;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-        Persona juan = new Persona("juan", 23, "salamanca");
-        PersonaService perSerivicio = new PersonaService();
-        Persona personaManual = perSerivicio.crearPersona();
-        System.out.println("finalizado");
+        LibroService libroService = new LibroService();
+        Libro libro = libroService.crearLibro();
     }
 }
