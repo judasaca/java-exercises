@@ -2,6 +2,7 @@ package Entidad;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cadena {
@@ -30,7 +31,9 @@ public class Cadena {
         System.out.println("La frase '"+ this.frase +"' contiene "+contador+" vocales");
     }
     public void invertirFrase(){
-        String[] letrasInvertidas = Collections.reverse(Arrays.asList(this.frase.split("")));
-        String fraseInvertida =String.join();
+        List<String> letrasInvertidas = Arrays.asList(this.frase.split(""));
+        Collections.reverse(letrasInvertidas);
+        String fraseInvertida =String.join("", letrasInvertidas);
+        System.out.println(fraseInvertida);
     }
 }
