@@ -36,4 +36,13 @@ public class Cadena {
         String fraseInvertida =String.join("", letrasInvertidas);
         System.out.println(fraseInvertida);
     }
+    public void vecesRepetido(String letra){
+        int contador = 0;
+        for (int i = 0; i < this.frase.length(); i++) {
+            if (letra.equals(this.frase.split("")[i])){
+                contador++;
+            }
+        }
+        System.out.println("La letra "+letra+" se repite "+contador+" veces.");
+    }
 }
