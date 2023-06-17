@@ -45,4 +45,24 @@ public class Cadena {
         }
         System.out.println("La letra "+letra+" se repite "+contador+" veces.");
     }
+    public void compararLongitud(String frase){
+        if (frase.length()==this.frase.length()) {
+            System.out.println("Las frases tienen la misma longitud.");
+        } else if(frase.length()>this.frase.length()) {
+            System.out.println("La frase ingresada tiene mayor longitud");
+        } else {
+            System.out.println("La frase original tiene mayor longitud");
+        }
+    }
+    public void unirFrases(String frase){
+        this.frase+=frase;
+        System.out.println(this.frase);
+    }
+    public void reemplazar(String letra){
+        System.out.println(this.frase.replace("a", letra));
+    }
+    public boolean contiene(String letra){
+        return this.frase.contains(letra);
+    }
+
 }
