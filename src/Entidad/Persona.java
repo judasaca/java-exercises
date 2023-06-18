@@ -1,5 +1,6 @@
 package Entidad;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Persona {
@@ -7,6 +8,15 @@ public class Persona {
     public String sexo;
     public int edad; 
     public double peso, altura;
+    
+    private LocalDate fechaDeNacimiento;
+
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
+    }
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
+    }
     public Persona(String nombre, String sexo, int edad, double peso, double altura) {
         this.nombre = nombre;
         this.sexo = sexo;
@@ -48,6 +58,8 @@ public class Persona {
         this.altura = altura;
     }
     public static Persona crearPersona() throws Exception{
+        int año, mes, dia;
+
         Scanner leer = new Scanner(System.in);
         Persona p = new Persona();
         System.out.println("Ingrese el nombre");
@@ -63,10 +75,35 @@ public class Persona {
         }
         System.out.println("Ingrese el peso");
         p.setPeso(leer.nextDouble());
+
         System.out.println("Ingrese la altura");
         p.setAltura(leer.nextDouble());
+
+        System.out.println("Ingrese el año de nacimiento:");
+        año = leer.nextInt();
+
+        System.out.println("Ingresa el mes de nacimiento:");
+        mes = leer.nextInt();
+
+        System.out.println("Ingresa el día de nacimiento:");
+        dia = leer.nextInt();
+
+        LocalDate fechaDeNacimiento = LocalDate.of(año, mes, dia);
+        p.setFechaDeNacimiento(fechaDeNacimiento);
+        
         return p;
     }
+
+    public int calcularEdad(){
+        LocalDate fechaActual = LocalDate.now();
+        int edad = fechaActual.getYear() - this.getFechaDeNacimiento().getYear();
+        System.out.println("La edad de "+this.nombre + " es "+ edad);
+        return edad;
+    }
+    public boolean menorQue(int edad){
+        return (this.calcularEdad() < edad);
+    }
+
     public int calcularIMC(){
         double imc = this.peso/(Math.pow(this.altura, 2));
         int value = 0; 
@@ -86,5 +123,10 @@ public class Persona {
         return (this.edad >=18);
     }
 
+    public void mostrarPersona(){
+        System.out.println("Nombre: "+ getNombre());
+        System.out.println("Edad: "+ calcularEdad());
+        System.out.println("Fecha de nacimiento: "+ getFechaDeNacimiento());
+    }
 
 }
