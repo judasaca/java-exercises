@@ -65,7 +65,7 @@ public class Curso {
             this.alumnos[i] = alumno;
         }
         System.out.println("Alumnos ingresados exitosamente:");
-        System.out.println(Arrays.toString(this.alumnos));
+        System.out.println(Arrays.toString(getAlumnos()));
     }
     public void calcularGananciaSemanal(){
         double gananciaSemanal = getCantidadHorasPorDia()*getPrecioPorHora()*getAlumnos().length*getCantidadDiasPorSemana();
