@@ -1,5 +1,7 @@
 package Entidad;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class NIF {
@@ -29,8 +31,9 @@ public class NIF {
         System.out.println("Ingresa el DNI");
         NIF n = new NIF();
         n.setDNI(Long.parseLong(leer.nextLine()));
-        int residuo =n.getDNI()%23;
-    }
+        long residuo = n.getDNI()%23L;
 
-    
+        // Map<Long, String> dict = new HashMap<Long, String>();
+        String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
+        System.out.println(n.getDNI()+'-' + letras[(int)residuo]);
 }
